@@ -1,6 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const MobilekController = require('../controllers/MobileController')
+const MobileController = require('../controllers/MobileController')
 const route = express.Router();
 route.use(bodyParser.json());
 route.use(bodyParser.urlencoded({

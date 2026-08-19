@@ -5,7 +5,7 @@ import AddMobile from './AddMobile.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* <AddBook></AddBook> */}
-    <AddMobile></AddMobile>
+    <AddBook></AddBook>
+    {/* <AddMobile></AddMobile> */}
   </StrictMode>,
 )

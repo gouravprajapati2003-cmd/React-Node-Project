@@ -17,7 +17,7 @@ function AddMobile() {
            rom: rom
         }
         axios({
-            url: 'http://localhost:3000/add/book',
+            url: 'http://localhost:3000/add/mobile',
             method: 'post',
             data: data
         }).then((res) => {
@@ -31,7 +31,7 @@ function AddMobile() {
         <Container className='align-items-center justify-content-center min-vh-100'>
             <Row className='w-100 justify-content-center'>
             <Col xs={12} md={6} lg={6} className='border p-4 rounded bg-white mt-5'>
-            <h2 className='text-center text-danger'>Add New Book</h2>
+            <h2 className='text-center text-danger'>Add New Mobile</h2>
             <Form>
             <Form.Group>
                 <Form.Label>Mobile Name</Form.Label>
