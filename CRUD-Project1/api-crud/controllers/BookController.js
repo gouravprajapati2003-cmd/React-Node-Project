@@ -10,7 +10,19 @@ const addBook = async (req, res) => {
         res.status(400).send({message: 'Something Went Wrong'})
     }
 }
+const getBooks = async (req, res) => {
+    try {
+        let books = await Book.find({}
+            console.log(books); 
+            res.status(200).send({data: books})
+        )
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({message: error})
+    }
+}
 
 module.exports = {
-    addBook
+    addBook,
+    getBooks
 }

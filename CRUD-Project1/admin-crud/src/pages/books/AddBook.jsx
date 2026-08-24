@@ -1,8 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import axios from "axios"
 function AddBook() {
+    let navigate = useNavigate();
     let [bookTitle, setBookTitle] = useState('')
     let [authorName, setAuthorName] = useState('')
     let [price, setPrice] = useState(0)
@@ -24,6 +26,7 @@ function AddBook() {
             data: data
         }).then((res) => {
             alert(res.data.message)
+            navigate('/books')
         }).catch((err) => {
             alert(err)
         })

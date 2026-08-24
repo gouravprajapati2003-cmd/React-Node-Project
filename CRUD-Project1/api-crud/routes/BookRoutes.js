@@ -9,5 +9,8 @@ route.use(bodyParser.urlencoded({
 route.post('/add/book', (req, res) => {
     BookController.addBook(req, res);
 })
+route.get('/books', (req, res) => {
+    BookController.getBooks(req, res);
+})
 
 module.exports = route;
