@@ -12,10 +12,9 @@ const addBook = async (req, res) => {
 }
 const getBooks = async (req, res) => {
     try {
-        let books = await Book.find({}
+        let books = await Book.find({})
             console.log(books); 
             res.status(200).send({data: books})
-        )
     } catch (error) {
         console.log(error);
         res.status(400).send({message: error})
