@@ -2,7 +2,7 @@ const Vehicle = require('../models/Vehicle')
 
 const addVehicle = async (req, res) => {
   try {
-    console.log(req.body)
+    // console.log(req.body)
     const vehicle = new Vehicle(req.body)
     await vehicle.save()
     console.log('Vehicle Added Successfully...')
@@ -12,6 +12,19 @@ const addVehicle = async (req, res) => {
     res.status(400).send({ message: 'Something Went Wrong' })
   }
 }
+
+const getVehicle = async (req, res) => {
+  try {
+    let vehicles = await Vehicle.find({})
+    // console.log(vehicles);
+    res.status(200).send({data: vehicles})
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({message: error});
+  }
+}
+
 module.exports = {
-  addVehicle
+  addVehicle,
+  getVehicle
 }

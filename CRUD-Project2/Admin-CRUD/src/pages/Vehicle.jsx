@@ -1,10 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './Vehicle.css'
 import { useState } from 'react'
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const AddVehicle = () => {
+  let navigate = useNavigate()
+
   let [brandName, setBrandName] = useState('')
   let [modelName, setModelName] = useState('')
   let [price, setPrice] = useState('')
@@ -42,6 +44,7 @@ const AddVehicle = () => {
         setVehicleColor('')
         setVehicleType('')
         setVehicleNumber('')
+        navigate('/vehicles')
       })
       .catch(err => {
         // Error message
@@ -132,15 +135,15 @@ const AddVehicle = () => {
                 >
                   <option value=''>-- Select Vehicle Type --</option>
 
-                  <option value='Car'>Car</option>
+                  <option value='Scooter'>Car</option>
 
                   <option value='Bike'>Bike</option>
 
-                  <option value='Scooter'>Scooter</option>
+                  <option value='Car'>Scooter</option>
 
-                  <option value='Truck'>Truck</option>
+                  <option value='Bus'>Truck</option>
 
-                  <option value='Bus'>Bus</option>
+                  <option value='Truck'>Bus</option>
                 </Form.Select>
               </Form.Group>
 

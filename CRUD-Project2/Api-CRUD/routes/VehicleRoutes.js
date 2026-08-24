@@ -10,5 +10,8 @@ route.use(bodyParser.urlencoded({
 route.post('/add/vehicle', (req, res) => {
     VehicleController.addVehicle(req, res);
 });
+route.get('/vehicles', (req, res) => {
+    VehicleController.getVehicle(req, res);
+})
 
 module.exports = route;
