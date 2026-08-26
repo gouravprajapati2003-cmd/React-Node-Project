@@ -21,6 +21,9 @@ const BookList = () => {
             alert(err)
         })
     }
+    function handleUpdate(id) {
+        navigate('/edit/book/'+ id)
+    }
     useEffect(() => {
         axios({
             url: 'http://localhost:3000/books',
@@ -40,13 +43,15 @@ const BookList = () => {
             <h3 class="text-center text-danger mt-5">Book List</h3>
             <Table bordered>
                 <thead>
+                <tr>
                     <th>Book Title</th>
                     <th>Author Name</th>
                     <th>Price</th>
-                    <th>ISBN Number</th>
-                    <th>Number of Pages</th>
+                    <th>ISBN No</th>
+                    <th>No of Pages</th>
                     <th>Publication</th>
                     <th>Actions</th>
+                    </tr>
                 </thead>
                 <tbody>
                     {
@@ -58,7 +63,10 @@ const BookList = () => {
                             <td>{book.isbnNo}</td>
                             <td>{book.nop}</td>
                             <td>{book.publication}</td>
-                            <td><Button variant="danger" size="Sm" onClick={() => handleDelete(book._id) }>Delete</Button></td>
+                            <td>
+                                <Button variant="danger" size="Sm" onClick={() => handleDelete(book._id) }>Delete</Button>
+                                <Button variant="warning" className="ms-1" size="Sm" onClick={() => handleUpdate(book._id) }>Edit</Button>
+                                </td>
                         </tr>
                         )
                     }

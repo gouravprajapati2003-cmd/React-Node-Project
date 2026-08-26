@@ -30,9 +30,35 @@ const deleteBook = async (req, res) => {
         res.status(400).send({success: false}); 
     }
 }
+const getBookForEdit = async (req, res) => {
+    try {
+        let id = req.params.id;
+        //console.log(id);
+        let book = await Book.findOne({_id: id});
+       // console.log(book);
+        res.status(200).send({data: book})
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({data: err})
+    }
+}
+const editBook = async (req, res) => {
+    try {
+        let id = req.params.id;
+        console.log(id);
+        let book = req.body;
+        console.log(book);
+        res.status(200).send({success: true})
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({success: false})
+    }
+}
 
 module.exports = {
     addBook,
     getBooks,
-    deleteBook
+    deleteBook,
+    getBookForEdit,
+    editBook,
 }

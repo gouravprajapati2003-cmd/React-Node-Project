@@ -15,5 +15,11 @@ route.get('/books', (req, res) => {
 route.delete('/delete/book/:id', (req, res) => {
     BookController.deleteBook(req, res);
 })
+route.get('/book/for/edit/:id', (req, res) => {
+    BookController.getBookForEdit(req, res);
+})
+route.put('/edit/book/:id', (req, res) => {
+    BookController.editBook(req, res);
+})
 
 module.exports = route;
