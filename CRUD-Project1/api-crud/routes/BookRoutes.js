@@ -12,5 +12,8 @@ route.post('/add/book', (req, res) => {
 route.get('/books', (req, res) => {
     BookController.getBooks(req, res);
 })
+route.delete('/delete/book/:id', (req, res) => {
+    BookController.deleteBook(req, res);
+})
 
 module.exports = route;
