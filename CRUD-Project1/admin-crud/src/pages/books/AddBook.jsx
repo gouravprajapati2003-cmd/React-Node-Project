@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+const apiUrl = import.meta.env.VITE_API_URL
 import axios from "axios"
 function AddBook() {
     let navigate = useNavigate();
@@ -21,7 +22,7 @@ function AddBook() {
             publication: publication
         }
         axios({
-            url: 'http://localhost:3000/add/book',
+            url: apiUrl + '/add/book',
             method: 'post',
             data: data
         }).then((res) => {

@@ -1,10 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import axios from "axios";
+const apiUrl = import.meta.env.VITE_API_URL
 const BookPageForEdit = () => {
     let params = useParams();
+    let navigate = useNavigate();
     let id = params.id;
     let [book, setBook] = useState({
         bookTitle: '',
@@ -16,7 +18,7 @@ const BookPageForEdit = () => {
     });
     useEffect(() => {
         axios({
-            url: 'http://localhost:3000/book/for/edit/'+ id,
+            url: apiUrl + '/book/for/edit/'+ id,
             method: 'get'
         }).then((res) => {
             setBook(res.data.data);
@@ -35,11 +37,12 @@ const BookPageForEdit = () => {
     }
     function editBook() {
         axios({
-            url: 'http://localhost:3000/edit/book/' + id,
+            url: apiUrl + '/edit/book/' + id,
             method: 'put',
             data: book
         }).then((res) => {
             alert("Data has been updated Successfully")
+            navigate('/books');
         }).catch((err) => {
             alert(err)
         })
