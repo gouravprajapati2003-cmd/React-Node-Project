@@ -1,13 +1,16 @@
+require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
-const connect = require('./connection')
+const connect = require('./config/connection')
 const book = require('./routes/BookRoutes')
 const mobile = require('./routes/MobileRoutes')
+const createAdmin = require('./createAdmin');
 const app = express();
 app.use(cors());
 app.use(book);
 app.use(mobile);
 connect();
+createAdmin();
 
 
 app.listen(3000, (err) => {

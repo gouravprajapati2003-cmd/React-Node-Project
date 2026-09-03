@@ -4,6 +4,8 @@ import BookList from './pages/books/BookList';
 import Login from './Login'
 import Sidebarmenu from './Sidebarmenu'
 import BookPageForEdit from './pages/books/BookPageForEdit'
+import ShowNewBook from './pages/books/ShowNewBook'
+
 function App() {
     return (
         <>
@@ -14,6 +16,8 @@ function App() {
             <Route path = '/add/book' element = {<AddBook></AddBook>}></Route>
             <Route path = '/books' element = {<BookList></BookList>}></Route>
             <Route path = '/edit/book/:id' element = {<BookPageForEdit></BookPageForEdit>}></Route>
+            <Route path='/book/:id' element={<ShowNewBook></ShowNewBook>}></Route>
+
         </Routes>
         </Sidebarmenu>
         </BrowserRouter>
